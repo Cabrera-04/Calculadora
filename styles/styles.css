@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.calculadora {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main";
+    gap: 20px;
+    width: 80vw; /* Ajustar la calculadora al 80% del ancho de la ventana */
+    max-width: 500px; /* Tamaño máximo en pantallas grandes */
+    height: auto;
+}
+
+.header {
+    grid-area: header;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.display {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 100%;
+    text-align: right;
+    font-size: 3rem; /* Incrementamos el tamaño del texto */
+    overflow: hidden;
+    word-wrap: break-word;
+    height: 100px; /* Hacemos que la pantalla sea más alta */
+}
+
+#resultado {
+    font-size: 4rem; /* Hacemos que el resultado sea aún más grande */
+    font-weight: bold;
+}
+
+/* Grid layout para los botones */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas flexibles */
+    grid-template-rows: repeat(5, 1fr); /* 5 filas flexibles */
+    gap: 10px;
+}
+
+input[type="button"] {
+    background-color: #e0e0e0;
+    border: none;
+    font-size: 2rem; /* Ajustamos el tamaño de la fuente de los botones */
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 15px; /* Espaciado interno más grande */
+    transition: background-color 0.3s;
+}
+
+input[type="button"]:hover {
+    background-color: #d0d0d0;
+}
+
+input#igual {
+    background-color: #4CAF50;
+    color: white;
+}
+
+input#igual:hover {
+    background-color: #45a049;
+}
+
+input#ac {
+    background-color: #f44336;
+    color: white;
+}
+
+input#ac:hover {
+    background-color: #d32f2f;
+}
+
+input#borrar, input#cambiar-signo {
+    background-color: #ff9800;
+    color: white;
+}
+
+input#borrar:hover, input#cambiar-signo:hover {
+    background-color: #fb8c00;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+    .calculadora {
+        width: 90vw; /* Ajuste al 90% del ancho de la ventana en pantallas pequeñas */
+    }
+
+    .display {
+        font-size: 2rem;
+        height: 80px; /* Reducimos la altura de la pantalla en móviles */
+    }
+
+    #resultado {
+        font-size: 2.5rem; /* Ajustamos el tamaño del resultado en móviles */
+    }
+
+    input[type="button"] {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+}
